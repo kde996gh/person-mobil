@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".PersonAddActivity">
+
+    <TextView
+        android:id="@+id/addPersonTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center_horizontal"
+        android:text="@string/addNewPerson"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+
+
+    <EditText
+        android:id="@+id/PersonNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addPersonTextView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:hint="@string/name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/PhoneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/PersonNameEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="@string/phoneEditText"
+        android:inputType="text" />
+
+
+    <DatePicker
+        android:id="@+id/BirthDateEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:datePickerMode="spinner"
+        android:layout_below="@id/PhoneEditText"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:calendarViewShown="false"/>/>
+
+
+    <EditText
+        android:id="@+id/GenderEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/BirthDateEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="Neme"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/AddressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/GenderEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="@string/address"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/LanguageEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/AddressEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="@string/language"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/CategoryEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/LanguageEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="@string/category"
+        android:inputType="text" />
+
+    <Spinner
+        android:id="@+id/spinnerGender"
+        android:layout_below="@id/CategoryEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/spinnerTargetCategory"
+        android:layout_below="@id/spinnerGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerTargetCategory"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="addPerson"
+                android:text="@string/addPersonButton" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:onClick="cancel"
+                android:text="@string/cancel"
+                android:layout_marginLeft="40dp" />
+        </LinearLayout>
+</RelativeLayout>

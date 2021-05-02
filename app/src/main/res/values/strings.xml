@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Person</string>
+    <string name="password">Jelszó</string>
+    <string name="login">Bejelentkezés</string>
+    <string name="practicioner">Kezelőorvosok</string>
+    <string name="patient">Betegek</string>
+    <string name="relatedPersons">Hozzátartozók</string>
+    <string name="practitioner">Kezelőorvos</string>
+    <string name="addNewPerson">Személy hozzáadása</string>
+    <string name="name">Név</string>
+    <string name="phoneEditText">Telefonszám</string>
+    <string name="addPersonButton">Hozzáadás</string>
+    <string name="cancel">Mégse</string>
+    <string name="birthDate">Születési dátum</string>
+    <string name="address">Lakcím</string>
+    <string name="language">Nyelv</string>
+    <string name="category">Besorolási kategória</string>
+    <string name="persons">Személyek</string>
+    <string name="listPersons">Személyek listázása</string>
+    <string name="addPerson">Személy hozzáadása</string>
+    <string name="about">Névjegy</string>
+    <string name="delete">Törlés</string>
+    <string name="informations">Adatok</string>
+</resources>
