@@ -61,7 +61,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
             mPersonName.setText(currentPerson.getName());
             mTargetCategory.setText(currentPerson.getTargetCategory());
 
-            itemView.findViewById(R.id.delete).setOnClickListener(view -> ((PersonListActivity) mContext).deleteItem(currentPerson));
+          //  itemView.findViewById(R.id.delete).setOnClickListener(view -> ((PersonListActivity) mContext).deleteItem(currentPerson));
             itemView.findViewById(R.id.informations).setOnClickListener(view -> ((PersonListActivity) mContext).getPersonDatas(currentPerson));
 
         }

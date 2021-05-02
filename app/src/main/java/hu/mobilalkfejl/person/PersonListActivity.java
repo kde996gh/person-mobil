@@ -109,7 +109,7 @@ public class PersonListActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String personToJson = gson.toJson(currentPerson);
 
-        Intent intent = new Intent(this, PersonAddActivity.class);
+        Intent intent = new Intent(this, PersonInformationsActivity.class);
         intent.putExtra("personObjectInJson", personToJson);
         startActivity(intent);
 
