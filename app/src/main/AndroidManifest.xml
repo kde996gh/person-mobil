@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Person">
+        <activity android:name=".PersonInformationsActivity" />
         <activity android:name=".PersonAddActivity" />
         <activity android:name=".PersonListActivity" />
         <activity android:name=".MainActivity">

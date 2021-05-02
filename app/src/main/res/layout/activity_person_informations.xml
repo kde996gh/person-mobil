@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".PersonInformationsActivity"
+    android:orientation="vertical"
+    >
+
+
+    <TextView
+        android:id="@+id/addPersonTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="@string/datapage"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="14"
+        android:text="@string/name"
+
+        />
+    <TextView
+        android:id="@+id/PersonNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="12"
+        android:hint="--name--"
+        />
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@string/phone"
+        />
+    <TextView
+        android:id="@+id/PhoneTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="--phone--"
+         />
+
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@string/birthDate"
+        />
+    <TextView
+        android:id="@+id/BirthDateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="--birthdate--"
+      />
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@string/gender"
+        />
+    <TextView
+        android:id="@+id/GenderTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="--gender--"
+     />
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@string/address"
+        />
+
+    <TextView
+        android:id="@+id/AddressTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="--address--"
+         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@string/active"
+        />
+
+    <TextView
+        android:id="@+id/activeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="--active--"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="10"
+        android:text="@string/category"
+        />
+
+    <TextView
+        android:id="@+id/targetCategoryTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin_side"
+        android:layout_marginTop="@dimen/register_margin_top"
+        android:layout_marginRight="@dimen/default_margin_side"
+        android:ems="10"
+        android:hint="--targetCategory--"
+      />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="editPerson"
+            android:text="@string/edit"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="deletePerson"
+            android:layout_marginLeft="10dp"
+            android:text="@string/delete"
+            tools:ignore="OnClick"
+
+            android:layout_marginStart="10dp" />
+    </LinearLayout>
+</LinearLayout>

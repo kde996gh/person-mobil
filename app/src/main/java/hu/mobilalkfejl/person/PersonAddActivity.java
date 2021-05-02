@@ -29,20 +29,19 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
     EditText PhoneEditText;
     DatePicker BirthDateEditText;
     Spinner spinnerGender;
-    //    EditText GenderEditText;
     EditText AddressEditText;
-    EditText LanguageEditText;
+    Spinner spinnerActive;
     Spinner spinnerTargetCategory;
 
 
     private FirebaseFirestore mFirestore;
-    // private String id;
 
     Person person;
 
     //spinneres téma
     String[] gender = {"Nő", "Férfi"};
     String[] targetCategory = {"Orvos", "Beteg", "Hozzátartozó"};
+    String[] activeStatus = {"Igen", "Nem"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +55,6 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
         BirthDateEditText = findViewById(R.id.BirthDateEditText);
         //  GenderEditText = findViewById(R.id.GenderEditText);
         AddressEditText = findViewById(R.id.AddressEditText);
-        LanguageEditText = findViewById(R.id.LanguageEditText);
         /// CategoryEditText = findViewById(R.id.CategoryEditText);
 
         spinnerGender = (Spinner) findViewById(R.id.spinnerGender);
@@ -73,6 +71,13 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
         targetCategoryArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerTargetCategory.setAdapter(targetCategoryArrayAdapter);
 
+        spinnerActive = (Spinner) findViewById(R.id.spinnerActive);
+        spinnerActive.setOnItemSelectedListener(this);
+
+        ArrayAdapter activeArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, activeStatus);
+        activeArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerActive.setAdapter(activeArrayAdapter);
+
 
         Intent intent = getIntent();
         String jsonObject = intent.getStringExtra("personObjectInJson");
@@ -82,19 +87,14 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
 
             PersonNameEditText.setText(person.getName());
             PhoneEditText.setText(person.getPhoneNumber());
-//            BirthDateEditText.setText(person.getBirthDate());
-            //  GenderEditText.setText(person.getGender());
             spinnerGender.setSelection(getPositionFromArray(gender, person.getGender()));
             AddressEditText.setText(person.getAddress());
-            LanguageEditText.setText(person.getLanguage());
             spinnerTargetCategory.setSelection(getPositionFromArray(targetCategory, person.getTargetCategory()));
-            //  CategoryEditText.setText(person.getTargetCategory());
 
             String[] currentDate = stringToDateArray(person.getBirthDate());
             BirthDateEditText.init(Integer.parseInt(currentDate[0]), Integer.parseInt(currentDate[1]), Integer.parseInt(currentDate[2]), null);
         }
 
-        //spinneres dolog
 
     }
 
@@ -113,14 +113,12 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
         String name = PersonNameEditText.getText().toString();
         String phone = PhoneEditText.getText().toString();
         String birthDate = createStringDateFromDatePicker(BirthDateEditText);
-        //String gender = GenderEditText.getText().toString();
         String gender = spinnerGender.getSelectedItem().toString();
         String address = AddressEditText.getText().toString();
-        String language = LanguageEditText.getText().toString();
-        // String targetCategory = CategoryEditText.getText().toString();
+        boolean active = spinnerActive.getSelectedItem().toString().equals("Igen");
         String targetCategory = spinnerTargetCategory.getSelectedItem().toString();
 
-        Person newPerson = new Person(name, phone, birthDate, gender, address, language, targetCategory);
+        Person newPerson = new Person(name, phone, birthDate, gender, address, active, targetCategory);
 
         if (person != null) {
             mFirestore.collection("Persons").document(person._getId())
@@ -130,8 +128,9 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
             mFirestore.collection("Persons").add(newPerson)
                     .addOnSuccessListener(aVoid -> Log.d(LOG_TAG, "DocumentSnapshot successfully written!"))
                     .addOnFailureListener(e -> Log.w(LOG_TAG, "Error writing document", e));
-            finish();
         }
+        finish();
+
     }
 
     public void cancel(View view) {

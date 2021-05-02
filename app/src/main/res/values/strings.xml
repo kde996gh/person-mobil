@@ -8,7 +8,7 @@
     <string name="practitioner">Kezelőorvos</string>
     <string name="addNewPerson">Személy hozzáadása</string>
     <string name="name">Név</string>
-    <string name="phoneEditText">Telefonszám</string>
+    <string name="phone">Telefonszám</string>
     <string name="addPersonButton">Hozzáadás</string>
     <string name="cancel">Mégse</string>
     <string name="birthDate">Születési dátum</string>
@@ -21,4 +21,8 @@
     <string name="about">Névjegy</string>
     <string name="delete">Törlés</string>
     <string name="informations">Adatok</string>
+    <string name="datapage">Adatlap</string>
+    <string name="gender">Nem</string>
+    <string name="edit">Módosítás</string>
+    <string name="active">Aktív</string>
 </resources>

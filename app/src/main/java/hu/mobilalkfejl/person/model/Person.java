@@ -8,17 +8,17 @@ public class Person {
     private String birthDate;
     private String gender;
     private String address;
-    private String language;
+    private boolean active;
     private String targetCategory;
 
 
-    public Person(String name, String phoneNumber, String birthDate, String gender, String address, String language, String targetCategory) {
+    public Person(String name, String phoneNumber, String birthDate, String gender, String address, boolean active, String targetCategory) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
         this.gender = gender;
         this.address = address;
-        this.language = language;
+        this.active = active;
         this.targetCategory = targetCategory;
     }
 
@@ -74,12 +74,12 @@ public class Person {
         this.address = address;
     }
 
-    public String getLanguage() {
-        return language;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public String getTargetCategory() {
