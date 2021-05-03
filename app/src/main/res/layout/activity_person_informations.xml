@@ -3,21 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".PersonInformationsActivity"
     android:orientation="vertical"
-    >
+    tools:context=".PersonInformationsActivity">
 
 
     <TextView
         android:id="@+id/addPersonTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
         android:gravity="center_horizontal"
         android:text="@string/datapage"
         android:textAlignment="center"
         android:textSize="30sp" />
-
-
 
 
     <TextView
@@ -27,19 +25,19 @@
         android:layout_marginRight="10dp"
         android:ems="14"
         android:text="@string/name"
-
+        android:textSize="20sp"
         />
+
     <TextView
         android:id="@+id/PersonNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:ems="12"
+        android:layout_marginBottom="10dp"
+
         android:hint="--name--"
-        />
-
-
+        android:textSize="15sp" />
 
 
     <TextView
@@ -49,7 +47,10 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/phone"
+        android:textSize="20sp"
+
         />
+
     <TextView
         android:id="@+id/PhoneTextView"
         android:layout_width="match_parent"
@@ -57,12 +58,13 @@
         android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="--phone--"
-         />
 
+        android:textSize="15sp"
 
-
+        />
 
 
     <TextView
@@ -72,7 +74,10 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/birthDate"
+        android:textSize="20sp"
+
         />
+
     <TextView
         android:id="@+id/BirthDateTextView"
         android:layout_width="match_parent"
@@ -80,12 +85,10 @@
         android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="--birthdate--"
-      />
-
-
-
+        android:textSize="15sp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -94,7 +97,10 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/gender"
+        android:textSize="20sp"
+
         />
+
     <TextView
         android:id="@+id/GenderTextView"
         android:layout_width="match_parent"
@@ -102,10 +108,13 @@
         android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
+        android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="--gender--"
-     />
 
+        android:hint="--gender--"
+        android:textSize="15sp"
+
+        />
 
 
     <TextView
@@ -115,6 +124,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/address"
+        android:textSize="20sp"
+
         />
 
     <TextView
@@ -124,9 +135,13 @@
         android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
+        android:layout_marginBottom="10dp"
         android:ems="10"
+
         android:hint="--address--"
-         />
+        android:textSize="15sp"
+
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -135,6 +150,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/active"
+        android:textSize="20sp"
+
         />
 
     <TextView
@@ -144,8 +161,12 @@
         android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
+        android:layout_marginBottom="10dp"
         android:ems="10"
+
         android:hint="--active--"
+        android:textSize="15sp"
+
         />
 
     <TextView
@@ -155,6 +176,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/category"
+        android:textSize="20sp"
+
         />
 
     <TextView
@@ -164,38 +187,39 @@
         android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
-        android:ems="10"
+        android:layout_marginBottom="20dp"
         android:hint="--targetCategory--"
-      />
+
+        android:textSize="15sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal"
-        android:layout_gravity="center"
 
         >
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="editPerson"
-            android:text="@string/edit"
+            android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginEnd="10dp" />
+            android:onClick="editPerson"
+            android:text="@string/edit" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="deletePerson"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
+            android:onClick="deletePerson"
             android:text="@string/delete"
-            tools:ignore="OnClick"
 
-            android:layout_marginStart="10dp" />
+            tools:ignore="OnClick" />
     </LinearLayout>
 </LinearLayout>

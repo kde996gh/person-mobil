@@ -63,6 +63,11 @@ public class PersonListActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
     protected void onRestart() {
         super.onRestart();
         queryData();
