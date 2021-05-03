@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openAbout(View view) {
-        //TODO névjegy lap megvalósítása
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
     }
 }
