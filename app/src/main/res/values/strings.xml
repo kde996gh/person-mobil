@@ -25,4 +25,5 @@
     <string name="gender">Nem</string>
     <string name="edit">Módosítás</string>
     <string name="active">Aktív</string>
+    <string name="back">Vissza</string>
 </resources>
