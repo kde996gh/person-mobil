@@ -42,6 +42,8 @@ public class PersonListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_list);
 
+        this.overridePendingTransition(R.anim.anim_fade_in, R.anim.anim_fade_out);
+
         mRecyclerView = findViewById(R.id.recyclerView);
 
         mRecyclerView.setLayoutManager(new GridLayoutManager(

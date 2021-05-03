@@ -48,6 +48,9 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_add);
 
+        this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
+
+
         mFirestore = FirebaseFirestore.getInstance();
 
         PersonNameEditText = findViewById(R.id.PersonNameEditText);
@@ -130,11 +133,14 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
                     .addOnFailureListener(e -> Log.w(LOG_TAG, "Error writing document", e));
         }
         finish();
+        this.overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
 
     }
 
     public void cancel(View view) {
         finish();
+        this.overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
+
     }
 
     @Override
