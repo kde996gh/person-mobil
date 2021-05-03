@@ -15,7 +15,9 @@
         android:gravity="center_horizontal"
         android:text="@string/datapage"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_marginBottom="40dp"
+        />
 
 
 
@@ -27,6 +29,8 @@
         android:layout_marginRight="10dp"
         android:ems="14"
         android:text="@string/name"
+        android:textSize="20sp"
+
 
         />
     <TextView
@@ -35,7 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:ems="12"
+        android:layout_marginBottom="10dp"
+
+        android:textSize="15sp"
         android:hint="--name--"
         />
 
@@ -49,6 +55,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/phone"
+        android:textSize="20sp"
+
         />
     <TextView
         android:id="@+id/PhoneTextView"
@@ -59,7 +67,11 @@
         android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
         android:hint="--phone--"
-         />
+        android:layout_marginBottom="10dp"
+
+        android:textSize="15sp"
+
+        />
 
 
 
@@ -72,6 +84,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/birthDate"
+        android:textSize="20sp"
+
         />
     <TextView
         android:id="@+id/BirthDateTextView"
@@ -82,7 +96,11 @@
         android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
         android:hint="--birthdate--"
-      />
+        android:layout_marginBottom="10dp"
+
+        android:textSize="15sp"
+
+        />
 
 
 
@@ -94,6 +112,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/gender"
+        android:textSize="20sp"
+
         />
     <TextView
         android:id="@+id/GenderTextView"
@@ -103,8 +123,12 @@
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
+        android:layout_marginBottom="10dp"
+
         android:hint="--gender--"
-     />
+        android:textSize="15sp"
+
+        />
 
 
 
@@ -115,6 +139,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/address"
+        android:textSize="20sp"
+
         />
 
     <TextView
@@ -125,8 +151,12 @@
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
+        android:layout_marginBottom="10dp"
+
         android:hint="--address--"
-         />
+        android:textSize="15sp"
+
+        />
 
     <TextView
         android:layout_width="match_parent"
@@ -135,6 +165,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/active"
+        android:textSize="20sp"
+
         />
 
     <TextView
@@ -145,7 +177,11 @@
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
         android:ems="10"
+        android:layout_marginBottom="10dp"
+
         android:hint="--active--"
+        android:textSize="15sp"
+
         />
 
     <TextView
@@ -155,6 +191,8 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/category"
+        android:textSize="20sp"
+
         />
 
     <TextView
@@ -164,7 +202,9 @@
         android:layout_marginLeft="@dimen/default_margin_side"
         android:layout_marginTop="@dimen/register_margin_top"
         android:layout_marginRight="@dimen/default_margin_side"
-        android:ems="10"
+        android:textSize="15sp"
+        android:layout_marginBottom="20dp"
+
         android:hint="--targetCategory--"
       />
 
