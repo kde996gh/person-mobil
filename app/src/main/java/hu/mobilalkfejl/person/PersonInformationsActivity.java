@@ -1,5 +1,6 @@
 package hu.mobilalkfejl.person;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,9 +10,13 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.Gson;
 
 import java.util.Collection;
@@ -41,6 +46,14 @@ public class PersonInformationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_informations);
 
+        this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         PersonNameTextView = findViewById(R.id.PersonNameTextView);
         PhoneTextView = findViewById(R.id.PhoneTextView);
         BirthDateTextView = findViewById(R.id.BirthDateTextView);
@@ -59,12 +72,10 @@ public class PersonInformationsActivity extends AppCompatActivity {
 
         person = gson.fromJson(personJsonObject, Person.class);
 
-        setTextViewContent();
-
-
+        setTextViewContent(person);
     }
 
-    public void setTextViewContent(){
+    public void setTextViewContent(Person person) {
         PersonNameTextView.setText(person.getName());
         PhoneTextView.setText(person.getPhoneNumber());
         BirthDateTextView.setText(person.getBirthDate());
@@ -77,9 +88,19 @@ public class PersonInformationsActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        finish();
-        Log.i(LOG_TAG, "onResume");
+        queryData();
+        Log.i(LOG_TAG, "onRestart a personInofrmationsben!");
     }
+
+    public void queryData() {
+        mFirestore.collection("Persons").document(person._getId()).get().addOnSuccessListener(queryDocumentSnapshots -> {
+            Person person = queryDocumentSnapshots.toObject(Person.class);
+            person.setId(queryDocumentSnapshots.getId());
+            setTextViewContent(person);
+            Log.i(LOG_TAG, "LOGTAG: " + person.getName());
+        });
+    }
+
 
     public void editPerson(View view) {
         Intent intent = new Intent(this, PersonAddActivity.class);
@@ -97,7 +118,7 @@ public class PersonInformationsActivity extends AppCompatActivity {
                 .addOnFailureListener(fail -> {
                     Toast.makeText(this, "Item " + person._getId() + " cannot be deleted.", Toast.LENGTH_LONG).show();
                 });
-
         finish();
+        this.overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
     }
 }
