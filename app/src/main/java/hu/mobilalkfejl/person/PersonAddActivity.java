@@ -1,22 +1,16 @@
 package hu.mobilalkfejl.person;
 
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
 import hu.mobilalkfejl.person.model.Person;
@@ -34,7 +28,10 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
     Spinner spinnerTargetCategory;
 
 
-    private FirebaseFirestore mFirestore;
+  //  private FirebaseFirestore mFirestore;
+
+    private FireBaseCrud fbCrud = new FireBaseCrud();
+
 
     Person person;
 
@@ -51,7 +48,7 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
         this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
 
 
-        mFirestore = FirebaseFirestore.getInstance();
+    //    mFirestore = FirebaseFirestore.getInstance();
 
         PersonNameEditText = findViewById(R.id.PersonNameEditText);
         PhoneEditText = findViewById(R.id.PhoneEditText);
@@ -92,7 +89,7 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
             PhoneEditText.setText(person.getPhoneNumber());
             spinnerGender.setSelection(getPositionFromArray(gender, person.getGender()));
             AddressEditText.setText(person.getAddress());
-            spinnerTargetCategory.setSelection(getPositionFromArray(targetCategory, person.getTargetCategory()));
+            spinnerTargetCategory.setSelection(getPositionFromArray(targetCategory, person.getLink()));
 
             String[] currentDate = stringToDateArray(person.getBirthDate());
             BirthDateEditText.init(Integer.parseInt(currentDate[0]), Integer.parseInt(currentDate[1]), Integer.parseInt(currentDate[2]), null);
@@ -111,8 +108,6 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
     }
 
     public void addPerson(View view) {
-
-
         String name = PersonNameEditText.getText().toString();
         String phone = PhoneEditText.getText().toString();
         String birthDate = createStringDateFromDatePicker(BirthDateEditText);
@@ -124,13 +119,10 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
         Person newPerson = new Person(name, phone, birthDate, gender, address, active, targetCategory);
 
         if (person != null) {
-            mFirestore.collection("Persons").document(person._getId())
-                    .set(newPerson).addOnSuccessListener(aVoid -> Log.d(LOG_TAG, "DocumentSnapshot successfully written!"))
-                    .addOnFailureListener(e -> Log.w(LOG_TAG, "Error writing document", e));
+            fbCrud.updatePerson(person, newPerson);
         } else {
-            mFirestore.collection("Persons").add(newPerson)
-                    .addOnSuccessListener(aVoid -> Log.d(LOG_TAG, "DocumentSnapshot successfully written!"))
-                    .addOnFailureListener(e -> Log.w(LOG_TAG, "Error writing document", e));
+            fbCrud.addPerson(newPerson);
+
         }
         finish();
         this.overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
@@ -145,7 +137,6 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        //  Toast.makeText(getApplicationContext(), gender[position], Toast.LENGTH_LONG).show();
     }
 
     public String createStringDateFromDatePicker(DatePicker dp) {

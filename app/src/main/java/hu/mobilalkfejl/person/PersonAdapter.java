@@ -16,12 +16,12 @@ import hu.mobilalkfejl.person.model.Person;
 public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder> {
 
     private ArrayList<Person> mPersonData;
-    private ArrayList<Person> mPersonDataAll;
+   // private ArrayList<Person> mPersonDataAll;
     private Context mContext;
 
     public PersonAdapter(Context mContext, ArrayList<Person> personData) {
         this.mPersonData = personData;
-        this.mPersonDataAll = personData;
+    //    this.mPersonDataAll = personData;
         this.mContext = mContext;
     }
 
@@ -59,7 +59,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
 
         public void bindTo(Person currentPerson) {
             mPersonName.setText(currentPerson.getName());
-            mTargetCategory.setText(currentPerson.getTargetCategory());
+            mTargetCategory.setText(currentPerson.getLink());
 
           //  itemView.findViewById(R.id.delete).setOnClickListener(view -> ((PersonListActivity) mContext).deleteItem(currentPerson));
             itemView.findViewById(R.id.informations).setOnClickListener(view -> ((PersonListActivity) mContext).getPersonDatas(currentPerson));
