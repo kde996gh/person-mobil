@@ -9,17 +9,17 @@ public class Person {
     private String gender;
     private String address;
     private boolean active;
-    private String targetCategory;
+    private String link;
 
 
-    public Person(String name, String phoneNumber, String birthDate, String gender, String address, boolean active, String targetCategory) {
+    public Person(String name, String phoneNumber, String birthDate, String gender, String address, boolean active, String link) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
         this.gender = gender;
         this.address = address;
         this.active = active;
-        this.targetCategory = targetCategory;
+        this.link = link;
     }
 
     public Person() {
@@ -82,11 +82,17 @@ public class Person {
         this.active = active;
     }
 
-    public String getTargetCategory() {
-        return targetCategory;
+    public String getLink() {
+        return link;
     }
 
-    public void setTargetCategory(String targetCategory) {
-        this.targetCategory = targetCategory;
+    public void setLink(String link) {
+        this.link = link;
     }
+
+
+
 }
+
+
+
