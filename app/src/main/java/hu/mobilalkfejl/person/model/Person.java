@@ -4,7 +4,7 @@ public class Person {
 
     private String id;
     private String name;
-    private String phoneNumber;
+   // private String phoneNumber;
     private String birthDate;
     private String gender;
     private String address;
@@ -12,9 +12,9 @@ public class Person {
     private String link;
 
 
-    public Person(String name, String phoneNumber, String birthDate, String gender, String address, boolean active, String link) {
+    public Person(String name/*, String phoneNumber*/, String birthDate, String gender, String address, boolean active, String link) {
         this.name = name;
-        this.phoneNumber = phoneNumber;
+      //  this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
         this.gender = gender;
         this.address = address;
@@ -41,7 +41,7 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
-
+/*
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -49,7 +49,7 @@ public class Person {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
-
+*/
     public String getBirthDate() {
         return birthDate;
     }

@@ -12,6 +12,7 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         this.overridePendingTransition(R.anim.anim_fade_in, R.anim.anim_fade_out);
+        setTitle("Névjegy");
 
     }
 

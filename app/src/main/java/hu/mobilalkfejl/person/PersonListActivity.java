@@ -39,7 +39,7 @@ public class PersonListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setTitle("Személyek listája");
         //getActionBar().setDisplayHomeAsUpEnabled(true);
    //     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
