@@ -44,7 +44,7 @@ public class PersonListActivity extends AppCompatActivity {
    //     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        this.overridePendingTransition(R.anim.anim_fade_in, R.anim.anim_fade_out);
+        this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
 
         setContentView(R.layout.activity_person_list);
 
