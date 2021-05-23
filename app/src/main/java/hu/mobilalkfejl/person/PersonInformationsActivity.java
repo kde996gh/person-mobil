@@ -33,7 +33,7 @@ public class PersonInformationsActivity extends AppCompatActivity {
 
 
     TextView PersonNameTextView;
-    TextView PhoneTextView;
+   // TextView PhoneTextView;
     TextView BirthDateTextView;
     TextView GenderTextView;
     TextView AddressTextView;
@@ -53,7 +53,7 @@ public class PersonInformationsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_informations);
-
+        setTitle("Adatlap");
         this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
 
     }
@@ -63,7 +63,7 @@ public class PersonInformationsActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         PersonNameTextView = findViewById(R.id.PersonNameTextView);
-        PhoneTextView = findViewById(R.id.PhoneTextView);
+      //  PhoneTextView = findViewById(R.id.PhoneTextView);
         BirthDateTextView = findViewById(R.id.BirthDateTextView);
         GenderTextView = findViewById(R.id.GenderTextView);
         AddressTextView = findViewById(R.id.AddressTextView);
@@ -86,7 +86,7 @@ public class PersonInformationsActivity extends AppCompatActivity {
 
     public void setTextViewContent(Person person) {
         PersonNameTextView.setText(person.getName());
-        PhoneTextView.setText(person.getPhoneNumber());
+     //   PhoneTextView.setText(person.getPhoneNumber());
         BirthDateTextView.setText(person.getBirthDate());
         GenderTextView.setText(person.getGender());
         AddressTextView.setText(person.getAddress());

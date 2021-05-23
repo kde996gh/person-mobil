@@ -44,14 +44,13 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person_add);
-
         this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
 
 
     //    mFirestore = FirebaseFirestore.getInstance();
 
         PersonNameEditText = findViewById(R.id.PersonNameEditText);
-        PhoneEditText = findViewById(R.id.PhoneEditText);
+      //  PhoneEditText = findViewById(R.id.PhoneEditText);
         BirthDateEditText = findViewById(R.id.BirthDateEditText);
         //  GenderEditText = findViewById(R.id.GenderEditText);
         AddressEditText = findViewById(R.id.AddressEditText);
@@ -82,17 +81,22 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
         Intent intent = getIntent();
         String jsonObject = intent.getStringExtra("personObjectInJson");
         if (intent.hasExtra("personObjectInJson")) {
+            setTitle("Adatok módosítása");
+
             Gson gson = new Gson();
             person = gson.fromJson(jsonObject, Person.class);
 
             PersonNameEditText.setText(person.getName());
-            PhoneEditText.setText(person.getPhoneNumber());
+        //    PhoneEditText.setText(person.getPhoneNumber());
             spinnerGender.setSelection(getPositionFromArray(gender, person.getGender()));
             AddressEditText.setText(person.getAddress());
             spinnerTargetCategory.setSelection(getPositionFromArray(targetCategory, person.getLink()));
 
             String[] currentDate = stringToDateArray(person.getBirthDate());
             BirthDateEditText.init(Integer.parseInt(currentDate[0]), Integer.parseInt(currentDate[1]), Integer.parseInt(currentDate[2]), null);
+        }else{
+            setTitle("Személy hozzáadása");
+
         }
 
 
@@ -109,14 +113,14 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
 
     public void addPerson(View view) {
         String name = PersonNameEditText.getText().toString();
-        String phone = PhoneEditText.getText().toString();
+      //  String phone = PhoneEditText.getText().toString();
         String birthDate = createStringDateFromDatePicker(BirthDateEditText);
         String gender = spinnerGender.getSelectedItem().toString();
         String address = AddressEditText.getText().toString();
         boolean active = spinnerActive.getSelectedItem().toString().equals("Igen");
         String targetCategory = spinnerTargetCategory.getSelectedItem().toString();
 
-        Person newPerson = new Person(name, phone, birthDate, gender, address, active, targetCategory);
+        Person newPerson = new Person(name/*, phone*/, birthDate, gender, address, active, targetCategory);
 
         if (person != null) {
             fbCrud.updatePerson(person, newPerson);

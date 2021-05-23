@@ -27,4 +27,5 @@
     <string name="active">Aktív</string>
     <string name="back">Vissza</string>
     <string name="edit_person">Adatok módosítása</string>
+    <string name="save">Mentés</string>
 </resources>

@@ -2,9 +2,7 @@ package hu.mobilalkfejl.person;
 
 import android.util.Log;
 
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -53,7 +51,7 @@ public class FireBaseCrud {
                 "birthDate", newData.getBirthDate(),
                 "gender", newData.getGender(),
                 "name", newData.getName(),
-                "phoneNumber", newData.getPhoneNumber(),
+             //   "phoneNumber", newData.getPhoneNumber(),
                 "link", newData.getLink()
         ).addOnSuccessListener(aVoid -> Log.d(LOG_TAG, "DocumentSnapshot successfully written!"))
                 .addOnFailureListener(e -> Log.w(LOG_TAG, "Error writing document", e));

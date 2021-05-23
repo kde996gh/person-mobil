@@ -20,13 +20,6 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
-
-<!--        <Button-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:onClick="addNewPerson"-->
-<!--            android:text="@string/addPerson" />-->
-
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
