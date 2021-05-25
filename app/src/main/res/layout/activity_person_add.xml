@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".PersonAddActivity"
     android:layout_marginTop="20dp"
-    >
+    tools:context=".PersonAddActivity">
 
 
     <EditText
-        android:id="@+id/PersonNameEditText"
+        android:id="@+id/PersonFamilyNameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -20,7 +19,23 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
         android:ems="10"
-        android:hint="@string/name"
+        android:hint="Vezetéknév"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/PersonGivenNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/PersonFamilyNameEditText"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp"
+        android:ems="10"
+        android:hint="Keresztnév"
         android:inputType="textPersonName" />
 
 
@@ -28,103 +43,79 @@
         android:id="@+id/birthdateLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/PersonGivenNameEditText"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:textSize="20sp"
         android:text="@string/birthDate"
-        android:layout_below="@id/PersonNameEditText"
-        />
+        android:textSize="20sp" />
 
 
     <DatePicker
         android:id="@+id/BirthDateEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:datePickerMode="spinner"
         android:layout_below="@id/birthdateLabel"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:calendarViewShown="false"/>
+        android:layout_centerVertical="true"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
 
 
     <TextView
         android:id="@+id/genderLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/BirthDateEditText"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
-
-        android:textSize="20sp"
         android:text="@string/gender"
-        android:layout_below="@id/BirthDateEditText"
-        />
+        android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/spinnerGender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/genderLabel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        />
-
-    <EditText
-        android:id="@+id/AddressEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinnerGender"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:layout_marginBottom="5dp"
-
-        android:ems="10"
-        android:hint="@string/address"
-        android:inputType="text" />
+        android:layout_marginBottom="5dp" />
 
     <TextView
         android:id="@+id/activeLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerGender"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
 
-        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
         android:text="@string/active"
-        android:layout_below="@id/AddressEditText"
-        />
+        android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/spinnerActive"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@id/activeLabel"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/activeLabel"
+        android:layout_marginBottom="5dp" />
 
     <TextView
         android:id="@+id/targetCategoryLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerActive"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="20dp"
 
-        android:textSize="20sp"
+        android:layout_marginBottom="20dp"
         android:text="@string/category"
-        android:layout_below="@id/spinnerActive"
-        />
+        android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/spinnerTargetCategory"
-        android:layout_below="@id/targetCategoryLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"/>
+        android:layout_below="@id/targetCategoryLabel"
+        android:ems="10" />
 
 
     <LinearLayout
@@ -148,8 +139,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
             android:onClick="cancel"
-            android:text="@string/cancel"
-            android:layout_marginLeft="40dp" />
+            android:text="@string/cancel" />
     </LinearLayout>
 </RelativeLayout>

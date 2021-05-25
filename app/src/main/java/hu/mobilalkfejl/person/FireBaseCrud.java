@@ -30,10 +30,6 @@ public class FireBaseCrud {
                 });
     }
 
-    public CollectionReference getmPersons() {
-        return mPersons;
-    }
-
     public FirebaseFirestore getmFirestore() {
         return mFirestore;
     }
@@ -47,11 +43,11 @@ public class FireBaseCrud {
     public void updatePerson(Person oldData, Person newData) {
         mPersons.document(oldData._getId()).update(
                 "active", newData.isActive(),
-                "address", newData.getAddress(),
+
                 "birthDate", newData.getBirthDate(),
                 "gender", newData.getGender(),
                 "name", newData.getName(),
-             //   "phoneNumber", newData.getPhoneNumber(),
+                //   "phoneNumber", newData.getPhoneNumber(),
                 "link", newData.getLink()
         ).addOnSuccessListener(aVoid -> Log.d(LOG_TAG, "DocumentSnapshot successfully written!"))
                 .addOnFailureListener(e -> Log.w(LOG_TAG, "Error writing document", e));

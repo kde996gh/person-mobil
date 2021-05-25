@@ -8,20 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/itemImage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true" />
-
         <TextView
             android:id="@+id/personName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/itemImage"
             android:padding="8dp"
             android:text="@string/name"
-            android:textColor="?android:textColorSecondary" />
+            android:textColor="?android:textColorSecondary"
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/targetCategory"
@@ -30,8 +24,6 @@
             android:layout_below="@id/personName"
             android:padding="8dp"
             android:text="@string/category" />
-
-
 
         <Button
             android:id="@+id/informations"

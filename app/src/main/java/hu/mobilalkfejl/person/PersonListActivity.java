@@ -5,17 +5,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -33,15 +25,12 @@ public class PersonListActivity extends AppCompatActivity {
 
     private FireBaseCrud fbCrud = new FireBaseCrud();
 
-
     private int gridNumber = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle("Személyek listája");
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
-   //     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);

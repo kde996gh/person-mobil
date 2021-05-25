@@ -10,10 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.gson.Gson;
 
@@ -31,15 +29,12 @@ public class PersonInformationsActivity extends AppCompatActivity {
 
     Gson gson;
 
-
-    TextView PersonNameTextView;
-   // TextView PhoneTextView;
+    TextView PersonFamilyNameTextView;
+    TextView PersonGivenNameTextView;
     TextView BirthDateTextView;
     TextView GenderTextView;
-    TextView AddressTextView;
     TextView activeTextView;
     TextView targetCategoryTextView;
-
 
     private NotificationHelper mNotificationHelper;
     private JobScheduler mJobScheduler;
@@ -55,18 +50,16 @@ public class PersonInformationsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_person_informations);
         setTitle("Adatlap");
         this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onStart() {
         super.onStart();
-        PersonNameTextView = findViewById(R.id.PersonNameTextView);
-      //  PhoneTextView = findViewById(R.id.PhoneTextView);
+        PersonFamilyNameTextView = findViewById(R.id.PersonFamilyNameTextView);
+        PersonGivenNameTextView = findViewById(R.id.PersonGivenNameTextView);
         BirthDateTextView = findViewById(R.id.BirthDateTextView);
         GenderTextView = findViewById(R.id.GenderTextView);
-        AddressTextView = findViewById(R.id.AddressTextView);
         activeTextView = findViewById(R.id.activeTextView);
         targetCategoryTextView = findViewById(R.id.targetCategoryTextView);
 
@@ -85,11 +78,11 @@ public class PersonInformationsActivity extends AppCompatActivity {
     }
 
     public void setTextViewContent(Person person) {
-        PersonNameTextView.setText(person.getName());
-     //   PhoneTextView.setText(person.getPhoneNumber());
+        Person.HumanName humanName = person.getName();
+        PersonFamilyNameTextView.setText(humanName.getFamily());
+        PersonGivenNameTextView.setText(humanName.getGiven());
         BirthDateTextView.setText(person.getBirthDate());
         GenderTextView.setText(person.getGender());
-        AddressTextView.setText(person.getAddress());
         activeTextView.setText(person.isActive() ? "Igen" : "Nem");
         targetCategoryTextView.setText(person.getLink());
     }
@@ -129,11 +122,10 @@ public class PersonInformationsActivity extends AppCompatActivity {
         String[] bday = person.getBirthDate().split("-");
         Log.i(LOG_TAG, "LOGTAG:  " + cal + " " + "year: " + month + " , day: " + day);
 
-        if (month == (Integer.parseInt(bday[1]) + 1) && day == Integer.parseInt(bday[2])) {
+        if (month == (Integer.parseInt(bday[1])) && day == Integer.parseInt(bday[2])) {
             mNotificationHelper = new NotificationHelper(this);
-
-            Log.i(LOG_TAG, "Bejöttem az ifbe!");
-            mNotificationHelper.send("Ma van a születésnapja: " + person.getName());
+            Person.HumanName humanName = person.getName();
+            mNotificationHelper.send("Ma van a születésnapja: " + humanName.getFamily() + " " + humanName.getGiven());
         }
     }
 

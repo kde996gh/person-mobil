@@ -8,7 +8,7 @@ import androidx.annotation.RequiresApi;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class NotificationJobService extends JobService {
-    private  NotificationHelper mNotificationHelper;
+    private NotificationHelper mNotificationHelper;
 
     @Override
     public boolean onStartJob(JobParameters params) {

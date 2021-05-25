@@ -3,27 +3,51 @@ package hu.mobilalkfejl.person.model;
 public class Person {
 
     private String id;
-    private String name;
-   // private String phoneNumber;
+    private HumanName name;
     private String birthDate;
     private String gender;
-    private String address;
     private boolean active;
     private String link;
 
 
-    public Person(String name/*, String phoneNumber*/, String birthDate, String gender, String address, boolean active, String link) {
+    public Person(HumanName name, String birthDate, String gender, boolean active, String link) {
         this.name = name;
-      //  this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
         this.gender = gender;
-        this.address = address;
         this.active = active;
         this.link = link;
     }
 
     public Person() {
+    }
 
+    public static class HumanName {
+        private String family;
+        private String given;
+
+        public HumanName(String family, String given) {
+            this.family = family;
+            this.given = given;
+        }
+
+        public HumanName() {
+        }
+
+        public String getFamily() {
+            return family;
+        }
+
+        public void setFamily(String family) {
+            this.family = family;
+        }
+
+        public String getGiven() {
+            return given;
+        }
+
+        public void setGiven(String given) {
+            this.given = given;
+        }
     }
 
     public String _getId() {
@@ -34,22 +58,14 @@ public class Person {
         this.id = id;
     }
 
-    public String getName() {
+    public HumanName getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(HumanName name) {
         this.name = name;
     }
-/*
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-*/
     public String getBirthDate() {
         return birthDate;
     }
@@ -66,13 +82,6 @@ public class Person {
         this.gender = gender;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
     public boolean isActive() {
         return active;
@@ -89,7 +98,6 @@ public class Person {
     public void setLink(String link) {
         this.link = link;
     }
-
 
 
 }

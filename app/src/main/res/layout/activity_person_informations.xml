@@ -17,14 +17,33 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/PersonNameTextView"
+        android:id="@+id/PersonFamilyNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="--familyName--"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:ems="14"
+        android:text="Keresztnév"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/PersonGivenNameTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
 
-        android:hint="--name--"
+        android:hint="--givenName--"
         android:textSize="15sp" />
 
 
@@ -35,9 +54,7 @@
         android:layout_marginRight="10dp"
         android:ems="10"
         android:text="@string/birthDate"
-        android:textSize="20sp"
-
-        />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/BirthDateTextView"
@@ -73,36 +90,8 @@
         android:ems="10"
 
         android:hint="--gender--"
-        android:textSize="15sp"
+        android:textSize="15sp" />
 
-        />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:ems="10"
-        android:text="@string/address"
-        android:textSize="20sp"
-
-        />
-
-    <TextView
-        android:id="@+id/AddressTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/default_margin_side"
-        android:layout_marginTop="@dimen/register_margin_top"
-        android:layout_marginRight="@dimen/default_margin_side"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-
-        android:hint="--address--"
-        android:textSize="15sp"
-
-        />
 
     <TextView
         android:layout_width="match_parent"

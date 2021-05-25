@@ -17,26 +17,19 @@ import hu.mobilalkfejl.person.model.Person;
 
 public class PersonAddActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private static final String LOG_TAG = PersonAddActivity.class.getName();
-
-    EditText PersonNameEditText;
-    EditText PhoneEditText;
+    EditText PersonFamilyNameEditText;
+    EditText PersonGivenNameEditText;
     DatePicker BirthDateEditText;
     Spinner spinnerGender;
-    EditText AddressEditText;
     Spinner spinnerActive;
     Spinner spinnerTargetCategory;
-
-
-  //  private FirebaseFirestore mFirestore;
 
     private FireBaseCrud fbCrud = new FireBaseCrud();
 
 
     Person person;
 
-    //spinneres téma
-    String[] gender = {"Nő", "Férfi"};
+    String[] gender = {"Nő", "Férfi", "Egyéb", "Ismeretlen"};
     String[] targetCategory = {"Orvos", "Beteg", "Hozzátartozó"};
     String[] activeStatus = {"Igen", "Nem"};
 
@@ -46,15 +39,9 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
         setContentView(R.layout.activity_person_add);
         this.overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
 
-
-    //    mFirestore = FirebaseFirestore.getInstance();
-
-        PersonNameEditText = findViewById(R.id.PersonNameEditText);
-      //  PhoneEditText = findViewById(R.id.PhoneEditText);
+        PersonFamilyNameEditText = findViewById(R.id.PersonFamilyNameEditText);
+        PersonGivenNameEditText = findViewById(R.id.PersonGivenNameEditText);
         BirthDateEditText = findViewById(R.id.BirthDateEditText);
-        //  GenderEditText = findViewById(R.id.GenderEditText);
-        AddressEditText = findViewById(R.id.AddressEditText);
-        /// CategoryEditText = findViewById(R.id.CategoryEditText);
 
         spinnerGender = (Spinner) findViewById(R.id.spinnerGender);
         spinnerGender.setOnItemSelectedListener(this);
@@ -86,20 +73,17 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
             Gson gson = new Gson();
             person = gson.fromJson(jsonObject, Person.class);
 
-            PersonNameEditText.setText(person.getName());
-        //    PhoneEditText.setText(person.getPhoneNumber());
+            Person.HumanName humanName = person.getName();
+            PersonFamilyNameEditText.setText(humanName.getFamily());
+            PersonGivenNameEditText.setText(humanName.getGiven());
             spinnerGender.setSelection(getPositionFromArray(gender, person.getGender()));
-            AddressEditText.setText(person.getAddress());
             spinnerTargetCategory.setSelection(getPositionFromArray(targetCategory, person.getLink()));
 
             String[] currentDate = stringToDateArray(person.getBirthDate());
             BirthDateEditText.init(Integer.parseInt(currentDate[0]), Integer.parseInt(currentDate[1]), Integer.parseInt(currentDate[2]), null);
-        }else{
+        } else {
             setTitle("Személy hozzáadása");
-
         }
-
-
     }
 
 
@@ -112,15 +96,14 @@ public class PersonAddActivity extends AppCompatActivity implements AdapterView.
     }
 
     public void addPerson(View view) {
-        String name = PersonNameEditText.getText().toString();
-      //  String phone = PhoneEditText.getText().toString();
+
+        Person.HumanName name = new Person.HumanName(PersonFamilyNameEditText.getText().toString(), PersonGivenNameEditText.getText().toString());
         String birthDate = createStringDateFromDatePicker(BirthDateEditText);
         String gender = spinnerGender.getSelectedItem().toString();
-        String address = AddressEditText.getText().toString();
         boolean active = spinnerActive.getSelectedItem().toString().equals("Igen");
         String targetCategory = spinnerTargetCategory.getSelectedItem().toString();
 
-        Person newPerson = new Person(name/*, phone*/, birthDate, gender, address, active, targetCategory);
+        Person newPerson = new Person(name, birthDate, gender, active, targetCategory);
 
         if (person != null) {
             fbCrud.updatePerson(person, newPerson);
